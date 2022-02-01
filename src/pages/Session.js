@@ -8,6 +8,7 @@ from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
 
 import imgVideo from '../assets/video.png';
+import { NavBar } from "../components/navbar";
 
 export function Session({navigation}){
   return (
@@ -29,19 +30,25 @@ export function Session({navigation}){
         >
           <Text style={styles.lbButtonFinished}>Feito</Text>
         </TouchableOpacity>
-        <View style={styles.tips}>
-          <Text style={styles.textTip}>Series</Text>
-          <Text style={styles.textTip}>Repetições</Text>
-          <Text style={styles.textTip}>Descanso</Text>
-        </View>
-        <View style={styles.tipsItem}>
-          <Text style={styles.textTipItem}>3</Text>
-          <Text style={styles.textTipItem}>10</Text>
-          <Text style={styles.textTipItem}>20 seg</Text>
-        </View>
-        
+
+      <View style={styles.listView}>
+          <View style={styles.tips}>
+            <Text style={styles.textTip}>Series</Text>
+            <Text style={styles.textTipItem}>3x</Text>
+          </View>
+          <View style={styles.tips}>
+            <Text style={styles.textTip}>Repetições</Text>
+            <Text style={styles.textTipItem}>10</Text>
+          </View>
+          <View style={styles.tips}>
+            <Text style={styles.textTip}>Tempo</Text>
+            <Text style={styles.textTipItem}>20 seg</Text>
+          </View>
+        </View>      
+
       </View>
       
+      <NavBar />
     </View>
 
   )
@@ -83,18 +90,18 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: '#FFF',
   },
-  tips: {
-    paddingTop: 30,
-    paddingHorizontal:20,
-    width:'100%',
+  listView: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: 20,
+    padding: 20,
+    width: 350
   },
   tipsItem: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal:20
+    textAlign: 'center'
   },
   textTip: {
     fontSize: 25,
@@ -104,9 +111,8 @@ const styles = StyleSheet.create({
   textTipItem: {
     fontSize: 22,
     textAlign: 'center',
-    color: '#5B3FFF',
+    color: '#9E2D8C',
     fontWeight: 'bold',
-    paddingTop:10
 
   }
 

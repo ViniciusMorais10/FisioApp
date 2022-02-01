@@ -11,6 +11,7 @@ const Stack = createStackNavigator();
 export default function App(){
   return (
     <NavigationContainer>
+      <StatusBar barStyle='dark-content'/>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen
         name= 'Home'
