@@ -113,8 +113,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#9E2D8C',
     fontWeight: 'bold',
-
   }
-
- 
 })

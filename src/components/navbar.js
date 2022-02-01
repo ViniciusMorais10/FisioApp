@@ -1,21 +1,42 @@
-import React from 'react';
-import {Text, View, StyleSheet}
+import React, { useState } from 'react';
+import { Text, View, StyleSheet, TouchableOpacity}
 from 
 'react-native';
 
 import { Feather, Ionicons, AntDesign } from '@expo/vector-icons';
-// folder-minus
-// chatbox-ellipses
-//book
-
 
 export function NavBar(){
+
+  const [active, setActive] = useState(0);
+
+  function handleActive(index){
+    setActive(index);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.navbar}>
-        <Feather name='folder-minus' size={35} color={'#5B4FFF'} />
-        <Ionicons name='chatbox-ellipses' size={35} color={'#5B4FFF'} />
-        <AntDesign name='book' size={35}  color={'#5B4FFF'}/>
+        <TouchableOpacity
+        onPress={()=>handleActive(0)}
+        style={styles.button}
+        >
+          
+          <Feather name='folder-minus' size={35} style={{color: active == 0 ? '#5B4FFF' : '#000'}} />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.button}
+        onPress={()=>handleActive(1)}
+        >
+          <Ionicons name='chatbox-ellipses' size={35} style={{color: active == 1 ? '#5B4FFF' : '#000'}}  />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+        style={styles.button}
+        onPress={()=> handleActive(2)}
+        >
+          <AntDesign name='book' size={35} style={{color: active == 2 ? '#5B4FFF' : '#000'}} />
+        </TouchableOpacity>
         </View>
     </View>
   )
@@ -32,9 +53,14 @@ const styles = StyleSheet.create({
   navbar : {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  button: {
     alignItems: 'center',
-    paddingTop: 20,
-
-  }
+    justifyContent: 'center',
+    height: 100,
+    flex: 1,
+    // backgroundColor: 'red'
+    }
 });
 
